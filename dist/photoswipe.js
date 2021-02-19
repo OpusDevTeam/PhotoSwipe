@@ -171,7 +171,8 @@ var framework = {
 			features.caf = window.cancelAnimationFrame;
 		}
 
-		features.pointerEvent = !!window.PointerEvent || navigator.msPointerEnabled;
+		// Disable pointer events as they dont seem to be working correctly when enabled on Android Webview + Quasar framework (cant swipe between images)
+		features.pointerEvent = false; //!!window.PointerEvent || navigator.msPointerEnabled;
 
 		// fix false-positive detection of old Android in new IE
 		// (IE11 ua string contains "Android 4.0")
